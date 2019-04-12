@@ -10,7 +10,7 @@ This is a CLI password manager and autologin app written in python
 *Both modules can be installed easily using "pip install"*
 
 ### Usage Instructions
-First thing, run the setup.py script using:  
+First thing, run the setup script using:  
 <code>python setup.py</code> on the command line.
 
 Then the main program can be started using:  
@@ -21,9 +21,9 @@ After starting main.py
 (passkey can be set inside source file main.py)  
 >Default passkey="pass"  
 **Note: It is recommended to change the default passkey**
-* Enter name of account ('fb', 'gmail', etc)
-* Click on the first login field in web browser within 3 seconds (timing can be changed in login.py)
-* You should be logged in. Enjoy!
+2. Enter name of account ('fb', 'gmail', etc)
+3. Click on the first login field in web browser within 3 seconds (timing can be changed in login.py)
+4. You should be logged in. Enjoy!
 
 ### Adding accounts
 You can add your own accounts by adding/editing lines in the file 'data.txt' inside the data folder, in the following format:  
