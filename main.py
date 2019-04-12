@@ -3,6 +3,8 @@ import login
 
 GLOBAL_APP_PW = "pass"
 
+# There is a global password that is asked on opening, and it is required to proceed further
+# This has been added for security, as otherwise anyone on the machine can login for free 
 app_pw = getpass.getpass("Enter password to access app: ")
 if app_pw != GLOBAL_APP_PW:
     print ('Wrong password. Exiting')

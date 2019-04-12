@@ -17,9 +17,6 @@ def login(acc, credList):
         keyboard.type(credList[0] + '\r')
         time.sleep(2)
         keyboard.type(credList[1] + '\r')
-    elif acc == 'steam':
-        time.sleep(3)
-        keyboard.type(credList[0] + '\t' + credList[1] + '\r')
 
     #Default login
     else:
