@@ -6,7 +6,7 @@ except FileNotFoundError:
     exists = False
     os.mkdir('data')
     file = open ("data\data.txt", 'w')
-    file.write("fb:name@gmail.com,password")
+    file.write("fb:name@gmail.com,password\n")
     file.write("gmail:username,password")
     file.close()
     print ("Created new file!")
