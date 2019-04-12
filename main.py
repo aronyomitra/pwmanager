@@ -1,7 +1,7 @@
 import getpass
 import login
 
-GLOBAL_APP_PW = "passkey"
+GLOBAL_APP_PW = "pass"
 
 app_pw = getpass.getpass("Enter password to access app: ")
 if app_pw != GLOBAL_APP_PW:
