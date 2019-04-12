@@ -1,8 +1,5 @@
-import pyperclip, time
-from pynput.keyboard import Key, Controller
 import getpass
-
-keyboard = Controller()
+import login
 
 GLOBAL_APP_PW = "passkey"
 
@@ -29,3 +26,5 @@ for line in data:
 if accExists == False:
     print ("Account does not exist")
     exit();
+
+login.login (account, credList)
