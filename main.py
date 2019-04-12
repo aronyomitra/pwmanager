@@ -12,6 +12,7 @@ account = input ("Enter account: ")
 
 file = open(r"data\data.txt", 'r')
 data = file.readlines()
+file.close()
 
 accExists = False;
 for line in data:
