@@ -10,6 +10,12 @@ This is a CLI password manager and autologin app written in python
 *Both modules can be installed easily using "pip install"*
 
 ### Usage Instructions
+First thing, run the setup.py script using:  
+<code>python setup.py</code> on the command line.
+
+Then the main program can be started using:  
+<code>python main.py</code>  
+
 After starting main.py
 1. Enter global passkey to access app
 (passkey can be set inside source file main.py)  
