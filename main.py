@@ -4,7 +4,6 @@ import hashlib
 import encrypt as enc
 
 config_file = r'config.ini'
-
 conf = {}
 with open (config_file, 'r') as f:
     for line in f:
@@ -21,11 +20,21 @@ if hash != GLOBAL_APP_PW:
     print ('Wrong password. Exiting')
     exit()
 
+if enc.getKey() == b'':
+    initiallyEncrypted = False
+else:
+    initiallyEncrypted = True
+    enc.decrypt()
+
 account = input ("Enter account: ")
 
 file = open(r"data\data.txt", 'r')
 data = file.readlines()
 file.close()
+
+if initiallyEncrypted:
+    enc.createNewKey()
+    enc.encrypt()
 
 accExists = False;
 for line in data:

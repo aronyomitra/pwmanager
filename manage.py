@@ -16,7 +16,7 @@ def op1():
 def op2():
     key = enc.getKey()
     if key == b'':
-        enc.createNewKey()
+        print ("The key is " + str(enc.createNewKey()))
         enc.encrypt()
         print ("Done.")
     else:
@@ -25,11 +25,11 @@ def op2():
 def op3():
     key = enc.getKey()
     if key == b'':
-        enc.createNewKey()
+        print ("The key is " + str(enc.createNewKey()))
         enc.encrypt()
     else:
         enc.decrypt()
-        enc.createNewKey()
+        print ("The key is " + str(enc.createNewKey()))
         enc.encrypt()
 
     print ("Done.")
