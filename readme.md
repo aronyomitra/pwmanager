@@ -6,8 +6,10 @@ This is a CLI password manager and autologin app written in python
 - pynput   
 (https://pypi.org/project/pynput/)
 - pyperclip   
-(https://pypi.org/project/pyperclip/)  
-*Both modules can be installed easily using "pip install"*
+(https://pypi.org/project/pyperclip/)
+- cryptography  
+(https://pypi.org/project/cryptography/)  
+*All modules can be installed easily using "pip install"*
 
 ### Usage Instructions
 First thing, run the setup script using:  
@@ -18,9 +20,7 @@ Then the main program can be started using:
 
 After starting main.py
 1. Enter global passkey to access app
-(passkey can be set inside source file main.py)  
->Default passkey="pass"  
-**Note: It is recommended to change the default passkey**
+(passkey can be set the first time you run setup and then subsequently through running manage.py)    
 2. Enter name of account ('fb', 'gmail', etc)
 3. Click on the first login field in web browser within 3 seconds (timing can be changed in login.py)
 4. You should be logged in. Enjoy!
@@ -68,3 +68,18 @@ Hence, instead of typing straightaway, some time should be given to the user, wi
 where n is the number of seconds
 
 The function <code>pyperclip.copy("text")</code> can be used to copy text to the clipboard. This would allow users to copy text to clipboard. After that he can simply press CTRL+V to paste it to an input field
+
+### Encryption
+There is an option of encrypting the credentials file for advanced (or paranoid users). Even if you don't fit one of those categories, leaving passwords lying around in a plaintext is a pretty bad idea.
+
+The encryption used for data is fernet, which is itself implemented on:
+- AES in CBC mode with a 128-bit key for encryption; using PKCS7 padding.
+- HMAC using SHA256 for authentication.
+- Initialization vectors are generated using os.urandom().
+(https://github.com/fernet/spec/blob/master/Spec.md) for more info
+
+The global passkey used to access the app is stored as an md5 hash.
+
+The user can manually encrypt/decrypt the file by running manage.py from the command line. It is recommended to encrypt it once in the beginning and then leave it like that, only decrypting it to add new accounts or edit existing credentials.
+
+Running the program normally through main.py will automatically encrypt it at the end, if it was encrypted before, otherwise leave it be.
