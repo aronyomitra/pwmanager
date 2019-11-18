@@ -34,3 +34,6 @@ def decrypt():
 
     with open (data_file, 'wb') as f:
         f.write(decrypted)
+
+    with open (key_file, 'wb') as f:
+        f.write(b'')
