@@ -4,7 +4,7 @@ key_file = r'data\key'
 data_file = r'data\data.txt'
 def createNewKey():
     key = Fernet.generate_key()
-    print (key)
+    print ("The key is " + str(key))
     with open (key_file, 'wb') as f:
         f.write(key)
 
