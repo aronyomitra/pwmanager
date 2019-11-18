@@ -1,12 +1,23 @@
 import getpass
 import login
+import hashlib
+import encrypt as enc
 
-GLOBAL_APP_PW = "pass"
+config_file = r'config.ini'
+
+conf = {}
+with open (config_file, 'r') as f:
+    for line in f:
+        (key, val) = line.split('=')
+        conf[key] = val.strip()
+
+GLOBAL_APP_PW = conf['passkey']
 
 # There is a global password that is asked on opening, and it is required to proceed further
-# This has been added for security, as otherwise anyone on the machine can login for free 
+# This has been added for security, as otherwise anyone on the machine can login for free
 app_pw = getpass.getpass("Enter password to access app: ")
-if app_pw != GLOBAL_APP_PW:
+hash = hashlib.md5(app_pw.encode('utf-8')).hexdigest()
+if hash != GLOBAL_APP_PW:
     print ('Wrong password. Exiting')
     exit()
 
